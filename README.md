@@ -1,83 +1,58 @@
-Markdown
-# 🤖 AI After-School Tutor | Tutor de IA Extraescolar
+# 🎓 AI Live Class: Tutor Extraescolar Inmersivo
 
-> **Resumen:** Este repositorio desarrolla un tutor de IA personalizado para apoyo extraescolar. Utiliza modelos avanzados para guiar estudiantes, resolver dudas conceptuales y reforzar el aprendizaje autónomo mediante explicaciones adaptativas y pedagógicas.
+![Status](https://img.shields.io/badge/Status-En%20Desarrollo-green)
+![Tech](https://img.shields.io/badge/IA-Gemini%20%7C%20GPT--4-blue)
+![Focus](https://img.shields.io/badge/Enfoque-Video%20en%20Vivo%20y%20Pizarra-orange)
+
+## 📺 Visión del Proyecto
+Este proyecto redefine el apoyo escolar mediante la creación de un **Tutor Virtual en Vivo**. No es un simple chat de texto; es una experiencia de aula completa donde un avatar de IA interactúa por video, habla con el alumno y utiliza una **pizarra digital** para explicar conceptos, resolver ecuaciones y dibujar esquemas en tiempo real.
+
+El sistema está diseñado para ser un mentor extraescolar disponible 24/7, capaz de "enseñar a pensar" en lugar de solo dar respuestas.
 
 ---
 
-## 🌟 Sobre el Proyecto
-Este proyecto nace para transformar el apoyo escolar tradicional mediante el uso de **Inteligencia Artificial Generativa**. No es solo un chatbot; es un mentor diseñado para acompañar al estudiante en sus horas de estudio independiente, actuando como un facilitador del conocimiento 24/7.
+## 🧠 Arquitectura de Inteligencia y Flujo de Datos
+Para maximizar la eficiencia y el aprendizaje del sistema, el backend opera bajo la siguiente lógica (basada en búsqueda semántica):
 
-A diferencia de las herramientas de IA genéricas, este tutor está configurado para no dar respuestas directas, sino para fomentar el pensamiento crítico y el descubrimiento guiado.
+1.  **Entrada del Alumno:** Pregunta por voz o texto.
+2.  **Consulta en Base de Datos de Conocimiento:** * El sistema utiliza **Embeddings** para buscar si una duda similar ya ha sido resuelta.
+    * **SI existe:** Devuelve la respuesta optimizada (Ahorro de costes y latencia).
+    * **NO existe:** Llama a la API de IA (Gemini/GPT-4).
+3.  **Selección Inteligente de Modelo:** * **Preguntas Simples:** Procesadas por modelos ligeros (eficiencia).
+    * **Preguntas Complejas:** Escaladas a modelos grandes para razonamiento profundo.
+4.  **Aprendizaje Continuo:** Cada nueva interacción se guarda para enriquecer la base de datos futura.
+
+---
 
 ## ✨ Características Principales
-* **🧠 Método Socrático:** La IA no resuelve la tarea por el alumno; guía al usuario con preguntas clave para que descubra la solución por sí mismo.
-* **📈 Adaptabilidad:** Ajusta el tono, el lenguaje y la complejidad según el nivel académico (Primaria, Secundaria o Superior).
-* **🔍 Refuerzo Personalizado:** Identifica lagunas de conocimiento y genera ejercicios de práctica específicos basados en errores previos.
-* **📚 Soporte Multidisciplinar:** Configurado para asistir en matemáticas, ciencias, literatura y más, manteniendo siempre el rigor académico.
+* **🎥 Avatar Humanoide en Vivo:** Interacción visual mediante video generado en tiempo real.
+* **🖍️ Pizarra Dinámica:** El tutor escribe y pone ejemplos visuales en una pizarra mientras explica.
+* **🛡️ Privacidad desde el Diseño (RGPD):** Solo se almacenan datos académicos (pregunta, respuesta, tema, nivel). **Cero datos personales** identificables.
+* **📈 Memoria Adaptativa:** El tutor recuerda el nivel educativo del alumno para ajustar la complejidad de sus explicaciones.
 
 ---
 
-## 🛠️ Stack Tecnológico
-* **Lenguaje:** Python 3.10+
-* **Orquestación IA:** LangChain / OpenAI SDK
-* **Modelos:** GPT-4o / Claude 3.5 Sonnet
-* **Infraestructura:** [Añade aquí: Streamlit, Flask, FastAPI, etc.]
+## 🛠️ Stack Tecnológico Planteado
+* **IA Cognitiva:** Google Gemini API (Modelos Flash y Pro).
+* **Motor de Video:** Integración con SDK de Avatares Interactivos (HeyGen / Vapi).
+* **Base de Datos:** Vector Database para búsqueda semántica y caché de respuestas.
+* **Interfaz:** React + Canvas API para la pizarra interactiva.
 
 ---
 
-## ⚙️ Instalación y Configuración
+## 📂 Estructura del Repositorio
+* `/brain`: Lógica de decisión, prompts socráticos y gestión de modelos de IA.
+* `/database`: Configuración de embeddings y almacenamiento de conocimiento anonimizado.
+* `/classroom`: Interfaz de usuario, streaming de video y control de la pizarra.
+* `/legal`: Documentación sobre el cumplimiento de RGPD y ética educativa.
 
-Sigue estos pasos para poner en marcha tu entorno local de tutoría:
+---
 
-1. **Clonar el repositorio:**
-   
-   git clone [https://github.com/tu-usuario/ai-tutor-extraescolar.git](https://github.com/tu-usuario/ai-tutor-extraescolar.git)
-   cd ai-tutor-extraescolar
+## 🚀 Cómo empezar (Planteamiento)
+1.  Configura tus claves de API en el archivo `.env`.
+2.  Inicializa la base de datos de conocimiento con los materiales curriculares.
+3.  Lanza el entorno del aula virtual para comenzar la tutoría en vivo.
 
-2.**Crear un entorno virtual (Recomendado):**
+---
 
-
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
-
-3.**Instalar dependencias:**
-
-pip install -r requirements.txt
-
-4.**Configurar variables de entorno:**
-
-Crea un archivo .env en la raíz del proyecto y añade tus credenciales:
-
-OPENAI_API_KEY=tu_api_key_aqui
-
-
-5.**Lanzar el Tutor:**
-
-python main.py
-
-
-📂 **Estructura del Proyecto**
-src/: Contiene la lógica principal del agente de IA y los motores de inferencia.
-
-prompts/: Librería de prompts pedagógicos diseñados para el soporte extraescolar.
-
-data/: Módulos de conocimiento (RAG) para materias específicas.
-
-tests/: Suite de pruebas para asegurar la precisión académica de las respuestas.
-
-🤝 **Contribuciones**
-¡Las contribuciones son lo que hacen que la comunidad educativa crezca! Si tienes ideas para mejorar la pedagogía del bot, optimizar los prompts o añadir nuevas materias, siéntete libre de:
-
-Hacer un Fork del proyecto.
-
-Crear una Branch con tu mejora (git checkout -b feature/MejoraPedagogica).
-
-Hacer Commit de tus cambios.
-
-Abrir un Pull Request.
-
-📜 **Licencia**
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
-
-Desarrollado para potenciar el aprendizaje autónomo y el futuro de la educación. 🚀
+**Transformando las clases particulares en una experiencia tecnológica sin precedentes.** 🚀
